@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Hotel {
 
 	public static void main(String[] args) {
-		
+		//
 			
 			ApplicationContext appContext = new ClassPathXmlApplicationContext("setter/injection/demo/context/appContxt.xml");
 			Meal m = new Meal();
