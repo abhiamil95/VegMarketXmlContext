@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!--normal Bean -->
+<bean id="fruit" class="com.market.fruit"/>
+<bean id="Vegitables" class="com.market.Vegitables"/>
+
+<!-- FOR constructor -->
+<bean id="VegitablesName" class="com.market.Vegitables">
+<constructor-arg index="0" value="spinach">
+</constructor-arg>
+</bean>
+<!-- Using Property tag -->
+<bean id="vegName" class="com.market.Vegitables">
+ <property name="name" value="tomato"></property>
+</bean>
+<!-- FOR Collection Properties -->
+ <bean id="fruitcollection" class="com.market.fruit">
+  <property name="li">
+     <list>
+       <value>Apple</value>
+       <value>Mango</value>
+     </list>
+  </property>
+  <property name="namemap">
+    <map>
+       <entry key="apple" value="red"></entry>
+        <entry key="orange" value="orange"></entry>
+    </map>
+  </property>
+ </bean>
+ <!-- Using p-namespace (must include xmlns before using this) -->
+ <bean id="Vegi" class="com.market.Vegitables" p:name="sqash">
+ 
+ </bean>
+ <!-- Using External Property files -->
+ 
+ <!-- Insert namespace context to use external file -->
+ <context:property-placeholder location="src/main/java/com/market/myapp.properties"/>
+ <bean id="ext" class="com.market.fruit">
+  <property name="name" value="${def-fruit}"></property>
+ </bean>
+ 
+ 
+</beans>

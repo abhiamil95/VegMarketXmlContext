@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="gr" class="setter.injection.demo.Grain"></bean>
+<bean id="mt" class="setter.injection.demo.Meat"></bean>
+
+<!-- Setter Injection -->
+<bean id="meal" class="setter.injection.demo.Meal">
+ <property name="grain" ref="gr" ></property>
+ <property name="meat" ref="mt" ></property>
+</bean>
+<!-- Constructor Injection -->
+<bean name="ml" class="setter.injection.demo.Meal">
+<constructor-arg index="0" ref="gr"/>
+<constructor-arg index="1" ref="mt"/>
+</bean>
+<!-- Alternate way of Constructor Injection-->
+<bean name="mlalt" class="setter.injection.demo.Meal">
+<constructor-arg name="g" ref="gr"/> <!-- here g reffers to constrctor fromal param -->
+<constructor-arg name="m" ref="mt"/>
+</bean>
+
+<!-- Autowiring -->
+ <bean id="mealautowired" class="setter.injection.demo.Meal" autowire="byType">
+ </bean>
+
+</beans>
