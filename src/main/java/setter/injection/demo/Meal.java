@@ -31,7 +31,7 @@ public class Meal {
 	{
 		String menu="Meal Have:";
 		if(grain!=null) menu+="some grain:";
-		if(grain!=null) menu+="some meat:";
+		if(meat!=null) menu+="some meat:";
 		return menu;
 	}
 
